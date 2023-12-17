@@ -1,4 +1,5 @@
-const btnSignUp=document.querySelector('.btn-signup')
+const btnSignUp = document.querySelector(".btn-signup");
+const inputNameSelector = document.querySelector(".name");
 
 // btnSignUp.addEventListener('click',handleSignClick())
 
@@ -12,18 +13,49 @@ const btnSignUp=document.querySelector('.btn-signup')
 
 // Viet code theo Arrow Function syntax
 
-btnSignUp.addEventListener('click', () => {
-    event.preventDefault();
-    console.log("hello");
-  });
-
-
-
-
-//option 2 
-btnSignUp.addEventListener('click', (event) => handleSignClick(event)); // Pass 'event' as argument
-
-function handleSignClick(event) {
+btnSignUp.addEventListener("click", () => {
   event.preventDefault();
-  console.log("hello");
-}
+
+  let inputValueName = inputNameSelector.value;
+ 
+  let errorNameSelector = inputNameSelector
+    .closest('.form-group')
+    .querySelector('.error_message');
+    if (inputValueName === "")
+    {
+      inputNameSelector.classList.add('error');
+      errorNameSelector.textContent="Ten Khong Duoc Bo Trong"
+    }
+    else
+    {
+      inputNameSelector.classList.remove('error')
+      errorNameSelector.textContent=""
+
+    }
+});
+
+// //option 2
+// btnSignUp.addEventListener("click", (event) => handleSignClick(event)); // Pass 'event' as argument
+
+// function handleSignClick(event) {
+//   event.preventDefault();
+
+//   let inputValueName = inputNameSelector.value;
+ 
+//   let errorNameSelector = inputNameSelector
+//     .closest('.form-group')
+//     .querySelector('.error_message');
+//     if (inputValueName === "")
+//     {
+//       inputNameSelector.classList.add('error');
+//       errorNameSelector.textContent="Ten Khong Duoc Bo Trong"
+//     }
+//     else
+//     {
+//       inputNameSelector.classList.remove('error')
+//       errorNameSelector.textContent=""
+
+//     }
+
+    
+// }
